@@ -27,413 +27,223 @@
 
 ---
 
-## ✨ What Makes This Special?
+# 📖 Vision Document
 
-Imagine having a **board-certified AI doctor** available 24/7 — one that listens to you in real time, understands your symptoms, asks follow-up questions, and generates a complete medical report — all within seconds.
+## 1. Project Overview
 
-This is not just another chatbot. This is a **full-stack production-ready SaaS** with:
+Healthcare systems worldwide face increasing pressure due to growing patient volumes, manual documentation, fragmented medical records, and inefficient communication between patients and healthcare professionals. Physicians often spend a significant portion of consultation time documenting patient interactions instead of focusing on clinical decision-making, while patients struggle with delayed appointments, limited accessibility, and poor continuity of care.
 
-- 🎤 **Real-time voice conversations** — speak naturally, no typing required
-- 🧠 **8 specialized AI doctors** — from General Physician to Cardiologist
-- 📋 **Auto-generated medical reports** — structured, detailed, downloadable
-- 💳 **Built-in subscription billing** — monetize your app from day one
-- 🔒 **Enterprise-grade authentication** — secure, scalable, production-ready
+MediVoice AI is a next-generation AI-powered Medical Voice Agent designed to transform healthcare interactions through real-time voice conversations, intelligent medical documentation, and AI-assisted clinical workflows. The platform enables patients to communicate naturally with specialized AI doctors using voice, while automatically generating structured medical reports, organizing consultation history, and providing personalized healthcare guidance.
+
+Built using modern cloud-native technologies such as Next.js, Clerk Authentication, AssemblyAI, Vapi AI, Google Gemini/OpenAI, Neon PostgreSQL, and Docker, MediVoice AI delivers a scalable, secure, and production-ready healthcare platform that improves operational efficiency while enhancing patient experience.
+
+## 2. Problem Statement
+
+Traditional healthcare systems continue to rely heavily on manual processes that reduce operational efficiency and negatively impact patient care.
+
+Major challenges include:
+
+- Manual consultation documentation increases physician workload.
+- Patients often forget prescriptions and consultation advice.
+- Appointment booking processes are time-consuming.
+- Lack of centralized medical history management.
+- Language and communication barriers during consultations.
+- Limited availability of healthcare professionals for routine queries.
+- Administrative staff spend excessive time managing appointments and records.
+- Existing digital healthcare systems rarely provide intelligent conversational assistance.
+
+These challenges increase operational costs, reduce consultation efficiency, and affect the overall quality of healthcare services.
+
+## 3. Vision Statement
+
+To revolutionize healthcare communication by developing an intelligent voice-driven medical assistant that empowers patients and healthcare professionals through conversational artificial intelligence, automated clinical documentation, secure digital healthcare management, and accessible medical assistance available anytime and anywhere.
+
+## 4. Mission Statement
+
+Our mission is to simplify healthcare communication by leveraging Artificial Intelligence, Voice Technology, and Cloud Computing to create a secure, scalable, and user-centric medical platform that minimizes administrative burden while maximizing healthcare accessibility and patient satisfaction.
+
+## 5. Project Objectives
+
+The primary objectives of MediVoice AI are:
+
+- Automate medical consultation documentation using AI.
+- Reduce physician administrative workload.
+- Enable natural voice-based patient interactions.
+- Improve healthcare accessibility through conversational AI.
+- Generate structured medical reports automatically.
+- Maintain secure patient consultation history.
+- Provide personalized healthcare recommendations.
+- Support multiple AI specialist doctors for different medical domains.
+- Deliver a scalable Software-as-a-Service healthcare platform.
+- Improve overall patient engagement and healthcare efficiency.
+
+## 6. Stakeholders
+
+### Primary Stakeholders
+
+- Patients
+- Doctors
+- Hospital Administrators
+- Receptionists
+
+### Secondary Stakeholders
+
+- Healthcare Organizations
+- Insurance Providers
+- Medical Researchers
+- Government Healthcare Authorities
+- AI System Administrators
+
+
+## 7. Target Users (Personas)
+
+### 👨 Patient
+
+**Name:** Rahul Sharma
+
+Age: 28
+
+Occupation: Software Engineer
+
+Goals
+
+- Receive quick medical guidance
+- Book appointments
+- View previous consultation reports
+- Access prescriptions
+- Receive medication reminders
+
+Pain Points
+
+- Long waiting times
+- Difficulty remembering prescriptions
+- Limited doctor availability
 
 ---
 
-## 🎬 Demo
+### 👩‍⚕️ Doctor
 
-```
-User:  "I've had a sharp headache behind my eyes since this morning..."
+**Name:** Dr. Priya Menon
 
-AI:    "I'm sorry to hear that. Is the pain constant or does it come
-        and go? Have you experienced any sensitivity to light or nausea?"
+Specialization: General Physician
 
-User:  "Yes, light hurts my eyes and I feel a bit nauseous."
+Goals
 
-AI:    "Based on your symptoms, this could be a migraine. I'd recommend
-        resting in a dark room, staying hydrated, and taking ibuprofen.
-        If symptoms worsen or last beyond 72 hours, please see a doctor."
-```
+- Reduce paperwork
+- Spend more time with patients
+- Generate structured consultation summaries
+- Access patient history quickly
 
-*All of this happens in real-time voice — no typing, no waiting.*
+Pain Points
 
----
-
-## 🏗️ Architecture Overview
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     USER'S BROWSER                          │
-│                                                             │
-│   🎤 Microphone → AssemblyAI → Text                        │
-│                                    ↓                        │
-│                               Vapi AI ←→ GPT-4             │
-│                                    ↓                        │
-│   🔊 Speaker  ← PlayHT ← AI Response Text                  │
-└─────────────────────────────────────────────────────────────┘
-          ↕                              ↕
-┌─────────────────┐            ┌──────────────────┐
-│   Clerk Auth    │            │  Neon PostgreSQL  │
-│  + Billing      │            │  (Drizzle ORM)    │
-└─────────────────┘            └──────────────────┘
-          ↕
-┌─────────────────┐
-│  Vercel Deploy  │
-│  (Global CDN)   │
-└─────────────────┘
-```
+- Manual documentation
+- Administrative workload
+- Managing multiple consultations
 
 ---
 
-## 🩻 Features at a Glance
+### 👩 Receptionist
 
-### 🎙️ Voice AI Engine
-- **Real-time speech-to-text** via AssemblyAI Universal Streaming
-- **300ms ultra-low latency** — feels like talking to a real person
-- **91%+ transcription accuracy** — understands accents and medical terms
-- **Live transcript display** — see your words as you speak them
+Goals
 
-### 👨‍⚕️ 8 AI Specialist Doctors
-| Specialist | Expertise |
-|---|---|
-| 🩺 General Physician | Common illnesses, general health |
-| 👶 Pediatrician | Children's health, infant care |
-| 🧠 Psychologist | Mental health, stress, anxiety |
-| 🥗 Nutritionist | Diet, meal planning, weight management |
-| 🦴 Orthopedic | Bones, joints, muscles, injuries |
-| 🔬 Dermatologist | Skin conditions, rashes, acne |
-| ❤️ Cardiologist | Heart health, blood pressure |
-| 🧬 Neurologist | Nervous system, migraines, neurological issues |
+- Schedule appointments
+- Verify patient information
+- Manage consultation queues
 
-### 📋 Smart Medical Reports
-Every consultation generates a structured report containing:
-- Chief complaint & symptom analysis
-- Conversation summary
-- Symptom duration & severity
+Pain Points
+
+- Manual scheduling
+- High patient traffic
+
+---
+
+### 👨‍💼 Administrator
+
+Goals
+
+- Manage users
+- Monitor subscriptions
+- View system analytics
+- Ensure platform security
+
+Pain Points
+
+- Managing multiple users
+- Monitoring system performance
+
+## 8. Key Features
+
+### Authentication
+
+- Secure Sign Up / Sign In
+- Google OAuth
+- Role-based authentication
+- Session management
+
+### AI Voice Consultation
+
+- Real-time speech recognition
+- Live AI conversation
+- Eight specialized AI doctors
+- Intelligent follow-up questions
+
+### AI Medical Reports
+
+- Consultation summary
+- Symptom analysis
 - Medication recommendations
-- Rest & lifestyle recommendations
-- AI disclaimer for safety
-
-### 💳 Subscription Billing (Clerk + Stripe)
-- **Free tier** — 1 consultation with General Physician
-- **Pro tier** — Unlimited access to all 8 specialists
-- One-line integration: just `<PricingTable />` — that's it
-
-### 🔐 Authentication (Clerk)
-- Google OAuth + Email/Password
-- Protected routes via middleware
-- User profile management
-- Session persistence
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Technology | Purpose |
-|---|---|---|
-| **Framework** | Next.js 15 (App Router) | Full-stack web application |
-| **Language** | TypeScript | Type safety & better DX |
-| **Styling** | Tailwind CSS v4 + ShadCN UI | Beautiful responsive UI |
-| **Auth + Billing** | Clerk | Authentication & Stripe subscriptions |
-| **Database** | Neon PostgreSQL | Cloud-hosted database |
-| **ORM** | Drizzle ORM | Type-safe database queries |
-| **Voice Agent** | Vapi AI | Voice pipeline orchestration |
-| **Speech-to-Text** | AssemblyAI | Real-time live transcription |
-| **AI Model** | Google Gemini / OpenAI GPT-4 | AI intelligence & report generation |
-| **Text-to-Speech** | PlayHT | Natural-sounding AI voice |
-| **Deployment** | Vercel | Global CDN hosting |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Make sure you have these installed:
-```bash
-node --version   # v18 or higher
-npm --version    # v9 or higher
-git --version    # any recent version
-```
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/ai-medical-voice-agent.git
-cd ai-medical-voice-agent
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-### 3. Set Up Environment Variables
-
-Create a `.env.local` file in the root directory:
-
-```bash
-# ================================
-# CLERK - Authentication & Billing
-# ================================
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxxxxxxxxx
-CLERK_SECRET_KEY=sk_test_xxxxxxxxxx
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
-
-# ================================
-# NEON DATABASE
-# ================================
-DATABASE_URL=postgresql://user:pass@ep-xxx.neon.tech/dbname?sslmode=require
-
-# ================================
-# VAPI AI - Voice Agent
-# ================================
-NEXT_PUBLIC_VAPI_API_KEY=your_vapi_public_key
-NEXT_PUBLIC_VAPI_VOICE_ASSISTANT_ID=your_assistant_id
-
-# ================================
-# AI MODEL
-# ================================
-GEMINI_API_KEY=AIzaSyxxxxxxxxxx
-
-# ================================
-# ASSEMBLYAI - Speech to Text
-# ================================
-ASSEMBLYAI_API_KEY=your_assemblyai_key
-```
-
-### 4. Get Your API Keys
-
-| Service | Where to Get | Free Tier |
-|---|---|---|
-| [Clerk](https://clerk.com) | Dashboard → API Keys | ✅ Free |
-| [Neon](https://neon.tech) | Project → Connect | ✅ Free |
-| [Vapi](https://vapi.ai) | Dashboard → API Keys | ✅ 1000 mins free |
-| [Google AI Studio](https://aistudio.google.com) | Get API Key | ✅ Free |
-| [AssemblyAI](https://assemblyai.com) | Dashboard → API Key | ✅ $50 free credit |
-
-### 5. Set Up the Database
-
-```bash
-# Install dotenv
-npm install dotenv
-
-# Push schema to Neon
-npx drizzle-kit push
-```
-
-You should see your `users` and `session_chart` tables appear in your Neon dashboard.
-
-### 6. Run the Development Server
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) and you'll see the app running! 🎉
-
----
-
-## 📁 Project Structure
-
-```
-ai-medical-voice-agent/
-├── 📁 app/
-│   ├── 📁 (routes)/
-│   │   ├── 📁 dashboard/           # Protected workspace
-│   │   │   ├── 📁 _components/     # Dashboard components
-│   │   │   ├── 📁 billing/         # Subscription page
-│   │   │   ├── 📁 history/         # Consultation history
-│   │   │   └── 📁 medical-agent/   # Voice agent conversation
-│   │   │       └── 📁 [sessionId]/ # Dynamic session route
-│   │   ├── 📁 sign-in/             # Clerk sign in page
-│   │   └── 📁 sign-up/             # Clerk sign up page
-│   ├── 📁 api/                     # Backend API routes
-│   │   ├── 📁 users/               # User management
-│   │   ├── 📁 session-chart/       # Session CRUD
-│   │   └── 📁 medical-report/      # AI report generation
-│   ├── layout.tsx                  # Root layout with providers
-│   └── provider.tsx                # Global state context
-├── 📁 components/
-│   └── 📁 ui/                      # ShadCN components
-├── 📁 config/
-│   ├── db.tsx                      # Neon DB connection
-│   └── schema.ts                   # Drizzle table schemas
-├── 📁 data/
-│   └── doctorAgents.ts             # AI doctor configurations
-├── 📁 public/                      # Static assets & images
-├── 📁 utils/                       # Utility functions
-├── drizzle.config.ts               # Drizzle configuration
-├── middleware.ts                   # Clerk route protection
-└── .env.local                      # Environment variables
-```
-
----
-
-## 🗄️ Database Schema
-
-```sql
--- Users Table
-CREATE TABLE users (
-  id        SERIAL PRIMARY KEY,
-  name      TEXT,
-  email     TEXT UNIQUE,
-  credits   INTEGER DEFAULT 10
-);
-
--- Session Chart Table
-CREATE TABLE session_chart (
-  id               SERIAL PRIMARY KEY,
-  session_id       TEXT UNIQUE,
-  created_by       TEXT,              -- user email
-  notes            TEXT,              -- symptoms entered
-  selected_doctor  JSON,              -- doctor object
-  conversation     JSON,              -- full message history
-  report           JSON,              -- AI-generated report
-  created_on       TIMESTAMP DEFAULT NOW()
-);
-```
-
----
-
-## 🌊 User Flow
-
-```
-Landing Page → Sign In (Clerk) → Dashboard
-                                      │
-                         ┌────────────┴────────────┐
-                         │                         │
-                  Enter Symptoms              Browse Doctors
-                         │                         │
-                  AI Suggests                 Select Doctor
-                  Specialists                      │
-                         │                         │
-                         └────────────┬────────────┘
-                                      │
-                              Voice Conversation
-                              (Vapi + AssemblyAI)
-                                      │
-                               End Consultation
-                                      │
-                            AI Generates Report
-                            (Gemini / GPT-4)
-                                      │
-                             View Report + History
-```
-
----
-
-## 🚢 Deployment
-
-### Deploy to Vercel
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) → Import project
-3. Add all environment variables
-4. Click Deploy
-
-```bash
-# Or use Vercel CLI
-npm i -g vercel
-vercel --prod
-```
-
-### After Deployment
-
-- Add your Vercel URL to **Clerk Domains**
-- Switch Clerk from Development → **Production mode**
-- Update API keys with `pk_live_` and `sk_live_` versions
-
----
-
-## 📸 Screenshots
-
-### 🏠 Landing Page
-> Beautiful animated hero section with feature highlights
-
-### 📊 Dashboard
-> Clean consultation history + AI specialist doctor grid
-
-### 🎙️ Voice Conversation
-> Real-time voice interface with live transcript display
-
-### 📋 Medical Report
-> Structured detailed report with symptoms, medications & recommendations
-
-### 💳 Billing
-> One-click subscription with Clerk's built-in pricing table
-
----
-
-## 🤝 Contributing
-
-Contributions are what make the open source community amazing! Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. Commit your Changes
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. Push to the Branch
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. Open a Pull Request
-
----
-
-## 🔮 Roadmap
-
-- [ ] 📱 Mobile app (React Native)
-- [ ] 🌍 Multi-language support
-- [ ] 📊 Health analytics dashboard
-- [ ] 🔔 Appointment reminders
-- [ ] 📁 Medical history PDF export
-- [ ] 🏥 Integration with real healthcare APIs
-- [ ] 👨‍👩‍👧 Family account management
-- [ ] 🤖 Custom AI doctor creator
-
----
-
-## ⚠️ Disclaimer
-
-> This application is built for **educational and demonstration purposes only**. The AI medical responses are generated by language models and should **never replace professional medical advice**. Always consult a qualified healthcare professional for medical decisions.
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-## 🙏 Acknowledgements
-
-- [Vapi AI](https://vapi.ai) — for the incredible voice agent infrastructure
-- [AssemblyAI](https://assemblyai.com) — for blazing-fast speech-to-text
-- [Clerk](https://clerk.com) — for seamless auth and billing
-- [Neon](https://neon.tech) — for serverless PostgreSQL
-- [ShadCN UI](https://ui.shadcn.com) — for beautiful components
-- [Vercel](https://vercel.com) — for effortless deployment
-
----
-
-<div align="center">
-
-**Built with ❤️ using Next.js, Vapi AI, AssemblyAI, and Clerk**
-
-⭐ **Star this repo if you found it helpful!** ⭐
-
-[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/ai-medical-voice-agent?style=social)](https://github.com/YOUR_USERNAME/ai-medical-voice-agent)
-[![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/ai-medical-voice-agent?style=social)](https://github.com/YOUR_USERNAME/ai-medical-voice-agent)
-
+- Lifestyle suggestions
+- Downloadable reports
+
+### Patient Dashboard
+
+- Consultation history
+- Medical reports
+- Voice sessions
+- Subscription management
+
+### Administration
+
+- User management
+- Billing
+- Analytics
+- Subscription monitoring
+
+### Cloud Infrastructure
+
+- Secure PostgreSQL database
+- Serverless deployment
+- Global CDN
+- Docker support
+
+## 9. Success Metrics
+
+| Metric | Target |
+|----------|---------|
+| Voice Transcription Accuracy | ≥ 95% |
+| AI Response Latency | < 2 seconds |
+| Medical Report Generation | < 5 seconds |
+| System Availability | ≥ 99% |
+| Consultation Completion Rate | ≥ 90% |
+| User Satisfaction Score | ≥ 90% |
+| Average Appointment Booking Time | < 2 minutes |
+| API Response Time | < 1 second |
+
+## 10. Assumptions
+
+- Users have stable internet connectivity.
+- Users possess microphone-enabled devices.
+- AI APIs remain operational.
+- Doctors validate AI-generated medical reports before clinical use.
+- Users provide accurate medical information.
+- Cloud infrastructure remains available.
+
+## 11. Constraints
+
+- Dependency on third-party AI services (Vapi, AssemblyAI, Gemini/OpenAI).
+- Internet connectivity is mandatory.
+- API rate limits under free development plans.
+- Voice recognition accuracy may reduce in noisy environments.
+- Compliance with healthcare privacy regulations.
+- AI recommendations are advisory and not a replacement for professional medical diagnosis.
 </div>
