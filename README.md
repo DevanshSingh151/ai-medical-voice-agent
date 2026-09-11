@@ -128,7 +128,7 @@ Upgrade flow on /dashboard/billing (Clerk metadata / Stripe-style plan)
 
 ![VitalAgent Architecture](docs\design\architecture.png)
 
-*(Editable source: [`docs/design/VitalAgent_Architecture.drawio`](docs\design\architecture.drawio) — open in [draw.io](https://app.diagrams.net))*
+*(Editable source: [`docs/design/architecture.drawio`](docs\design\architecture.drawio) — open in [draw.io](https://app.diagrams.net))*
 
 ### Layered Architecture
 
