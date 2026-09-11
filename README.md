@@ -126,7 +126,7 @@ Upgrade flow on /dashboard/billing (Clerk metadata / Stripe-style plan)
 
 ### Architecture Diagram
 
-![VitalAgent Architecture]
+[VitalAgent Architecture]
 ![alt text](image.png)
 
 *(Editable source: [`docs/design/architecture.drawio`](docs\design\architecture.drawio) — open in [draw.io](https://app.diagrams.net))*
